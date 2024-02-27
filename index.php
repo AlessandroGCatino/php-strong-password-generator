@@ -1,8 +1,9 @@
 <?php
 
+session_start();
+
 $passwordLenght = $_GET["pwdlen"] ?? 0;
 
-include './functions.php'
 
 
 ?>
@@ -24,9 +25,9 @@ include './functions.php'
         <h2 class="text-center">Genera una password sicura</h2>
         <div class="text-center p-5">
             <?php if($passwordLenght != 0) : ?>
-                <h4> <?=  genPW($passwordLenght)  ?> </h4>
+                <h4> <?=  $_SESSION["password"]  ?> </h4>
             <?php endif ?>
-            <form action="index.php" method="get">
+            <form action="result.php" method="get">
                 <label for="pwdlen">Lunghezza password: </label>
                 <input type="number" name="pwdlen" id="pwdlen" min="1">
                 <button type="submit" class="btn btn-primary">Genera</button>

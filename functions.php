@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function genRandomChar(){
     $out = "";
     $charSel = rand(1,4);
@@ -27,7 +29,8 @@ function genPW($leng){
     for($i=0; $i<$leng; $i++){
         $generatedPW .= genRandomChar();
     }
-    echo $generatedPW;
+    $_SESSION["password"] = $generatedPW;
+    
 }
 
 ?>
